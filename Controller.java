@@ -141,27 +141,29 @@ public class Controller implements Runnable {
 
   }
 
+//TODO View aktualisieren
+  //TODO null im thread beseitigen
 
   @Override
   public void run() {
-//
-//        while (true) {
-//            try {
-//
-//                GolLogik.checkEnvironment();
-//                Thread.sleep(1000);
-//            } catch (Exception e) {
-//                System.err.println(e.getMessage() + " " + e.getCause());
-//
-//                //some code
-//            }
-//
-//        }
-//
-//    }
-//
-//    public static void main(String args[]) {
-//
+
+        while (true) {
+            try {
+
+                checkEnvironment();
+                Thread.sleep(1000);
+            } catch (Exception e) {
+                System.err.println(e.getMessage() + " " + e.getCause());
+
+                //some code
+            }
+
+        }
+
+    }
+
+    public static void main(String args[]) {
+
   }
 
 }

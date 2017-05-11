@@ -162,7 +162,7 @@ class ChildFrame extends JInternalFrame implements  ActionListener{ // Klasse fu
       JMenuItem srcItem = (JMenuItem) e.getSource();
 
       if (srcItem.getActionCommand().equals("Spiel Starten")) {
-        (new Thread(new HelloRunnable())).start();
+        (new Thread(new Controller())).start();
 
 
       }
