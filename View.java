@@ -22,7 +22,7 @@ public class View extends JApplet implements Observer {
 
   public void addChild(JInternalFrame child, int x, int y) { // Hinzufuegen
     child.setLocation(x, y); // Ort und
-    child.setSize(200, 150); // Groesse setzen
+    child.setSize(500, 500); // Groesse setzen
     child.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE); // Schiessoperation
     desk.add(child); // Kindfenster einfuegen
     child.setVisible(true); // und sichtbar machen
@@ -38,15 +38,15 @@ public class View extends JApplet implements Observer {
   } // end main
 
   @Override
-  public void update(Observable o, Object arg) {
+  public void update(Observable Model, Object arg) {
+    repaint();
 
   }
 
 
-
 } // end class DesktopFrameTest
 
-class ChildFrame extends JInternalFrame implements  ActionListener{ // Klasse fuer Kindfenster
+class ChildFrame extends JInternalFrame implements ActionListener { // Klasse fuer Kindfenster
 
   static JButton[][] zelle;
   static JButton[][] gliderArray;
@@ -55,19 +55,14 @@ class ChildFrame extends JInternalFrame implements  ActionListener{ // Klasse fu
   Thread game;
 
   static int nr = -1, xpos = 30, ypos = 30; // statische Variablen
-  static final Color[] col = {Color.red, Color.green}; // verfuegbare Farben ...
   View mydesk; // Referenz auf Hauptfenster
 
   public ChildFrame(View dft) { // Konstruktor
     super("Kind " + (++nr), true, true); // vergroesserbar, schliessbar
-    setBackground(col[nr % col.length]); // Start-Farbe
+
     mydesk = dft; // Hauptfenster merken
 
-    this.setPreferredSize(new Dimension(750,750));
-
     Container cp = getContentPane(); // Fenster-Container
-
-
 
     JMenuBar menuBar = new JMenuBar();
 
@@ -90,13 +85,13 @@ class ChildFrame extends JInternalFrame implements  ActionListener{ // Klasse fu
 
       //Glider
 
-        //Startzustand
-        zelle[1][0].setBackground(Color.green);
-        zelle[2][1].setBackground(Color.green);
-        zelle[2][2].setBackground(Color.green);
-        zelle[1][2].setBackground(Color.green);
-        zelle[0][2].setBackground(Color.green);
-        //TODO Muss ins model synchronisiert werden
+      //Startzustand
+      zelle[1][0].setBackground(Color.green);
+      zelle[2][1].setBackground(Color.green);
+      zelle[2][2].setBackground(Color.green);
+      zelle[1][2].setBackground(Color.green);
+      zelle[0][2].setBackground(Color.green);
+      //TODO Muss ins model synchronisiert werden
     });
 
     //Seperator
@@ -168,8 +163,6 @@ class ChildFrame extends JInternalFrame implements  ActionListener{ // Klasse fu
       }
 
     }
-
-
 
 
   }

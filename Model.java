@@ -8,43 +8,57 @@ import javax.swing.JButton;
 /**
  * Created by Markus on 10.05.17.
  */
-public class Model extends Observable  {
+public class Model extends Observable {
 
-    int hoehe = 15;
-    int breite = 15;
-    static JButton[][]zelle;
-
-
-    public Model() {
+  int hoehe = 15;
+  int breite = 15;
+  public static JButton[][] zelle;
 
 
-        //JButtonarray erstellen
-        zelle = new JButton[breite][hoehe];
+  public Model() {
 
-        //Array zeichnen
-        int i = 0;
-        int j = 0;
+    //View als observer hinzufügen
+    addObserver(new View());
 
-        for (i = 0; i < zelle.length; i++) {
-            for (j = 0; j < zelle.length; j++) {
-                zelle[j][i] = new JButton();
-                zelle[j][i].setBackground(Color.white);
+    //JButtonarray erstellen
+    zelle = new JButton[breite][hoehe];
 
-            }
-        }
+    //Array zeichnen
+    int i = 0;
+    int j = 0;
+
+    for (i = 0; i < zelle.length; i++) {
+      for (j = 0; j < zelle.length; j++) {
+        zelle[j][i] = new JButton();
+        zelle[j][i].setBackground(Color.white);
 
 
+      }
     }
 
+    notifyObservers();
+  }
 
 
+  public static int getZelleLength() {
+
+    return zelle.length;
 
 
-
-
-
-
-
+  }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
