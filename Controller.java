@@ -120,6 +120,8 @@ public class Controller implements Runnable {
         //Eine lebende Zelle mit zwei oder drei lebenden Nachbarn bleibt in der Folgegeneration am Leben.
         if (this.model.zelle[i][j].getBackground().equals(Color.green) && (nb == 2 || nb == 3)) {
 
+          //do nothing
+
         }
 
         //Bei mehr als 3 Nachbarn stirbt die Zelle an Überbevölkerung
